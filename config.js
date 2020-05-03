@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = {
-  url: 'https://lumen.netlify.com',
+  url: 'https://anushree.tech/Blog',
   pathPrefix: '/',
-  title: 'Blog by John Doe',
-  subtitle: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+  title: 'Blog by Anushree Bagchi',
+  subtitle: '',
   copyright: '© All rights reserved.',
   disqusShortname: '',
   postsPerPage: 4,
@@ -25,19 +25,19 @@ module.exports = {
     }
   ],
   author: {
-    name: 'John Doe',
-    photo: '/photo.jpg',
-    bio: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+    name: 'Anushree Bagchi',
+    photo: '/photo.png',
+    bio: 'Software Engineer at Riversand Technologies. I love crafting beautiful user interfaces through code.',
     contacts: {
-      email: '',
-      facebook: '#',
-      telegram: '#',
-      twitter: '#',
-      github: '#',
+      email: 'anushreebagchi4791@gmail.com',
+      facebook: '',
+      telegram: '',
+      twitter: '',
+      github: 'https://github.com/AnushreeBagchi',
       rss: '',
       vkontakte: '',
-      linkedin: '#',
-      instagram: '#',
+      linkedin: 'www.linkedin.com/in/anushree-bagchi',
+      instagram: '',
       line: '',
       gitlab: '',
       weibo: '',
