@@ -2,7 +2,7 @@
 
 module.exports = {
   url: 'https://anushree.tech/Blog',
-  pathPrefix: '/',
+  pathPrefix: '/Blog',
   title: 'Blog by Anushree Bagchi',
   subtitle: '',
   copyright: '© All rights reserved.',
