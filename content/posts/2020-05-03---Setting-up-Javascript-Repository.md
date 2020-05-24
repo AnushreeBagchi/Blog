@@ -39,36 +39,9 @@ Navigate to root directory on command line and run the below command.
 ```shell
 npm init
 ```
-Provide package name, version, description etc basic questionaire asked in command line and confirm. 
-  
-  ```
-  name: (es6-demo) es6
-  version: (1.0.0) 1.0.0
-  description: ES6 demo
-  entry point: (index.js)
-  test command:
-  git repository:
-  keywords: es6
-  author: Aushree
-  license: (ISC)
-  About to write to D:\projects\es6-demo\package.json:
-  {
-  "name": "es6",
-  "version": "1.0.0",
-  "description": "ES6 demo",
-  "main": "index.js",
-  "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-  "es6"
-  ],
-  "author": "jstut",
-  "license": "ISC"
-  }
-```
+Provide package name, version, description, etc as per the questions asked by the CLI.    
 
-The above steps will create Package.json file which looks like
+The above steps will create `Package.json` file which looks like
 
 ```json
 {
@@ -82,82 +55,105 @@ The above steps will create Package.json file which looks like
   "keywords": [
   "es6"
   ],
-  "author": "jstut",
+  "author": "<Your Awesome Name>",
   "license": "ISC"
 }
 ```
 
-**Package.json** file holds various metadata relevant to the project. This file is used to give information to npm that allows it to identify the project as well as handle the project's dependencies. 
-Read more about Package.json [here](https://docs.npmjs.com/creating-a-package-json-file)
-  
-**Creating code folder.**
-  Create a src folder and add index.js file to the src folder. Add some code to the js files.
+`Package.json` file holds various metadata relevant to the project. This file is used to give information to npm that allows it to identify the project as well as handle the project's dependencies. Read more about Package.json [here](https://docs.npmjs.com/creating-a-package-json-file)
+   
+### Step 3: Write some code ###
+  Create a `src` folder and add `index.js` file to the src folder. Inside it write,
 
-  ```
+  ```javascript
   console.log("Inside index.js");
   ```
   
-**Executing the code in index.js file**
+### Step 4: Executing the code in index.js file ###
 
-  Run below in command line to exceute the code in index.js. The logging should appear in the command line after the script is executed. 
-  ```
-  node src/index.js
-  ```
-We can install nodemon in our project folder. Nodemon is a utility that will monitor for any changes in our source and automatically restart our server. On executing the below on command line, will create a devDependencies section in package.json
 
-  ```
-  npm install nodemon --save-dev
-  ```
-  ```
-  "devDependencies": {
-    "nodemon": "^2.0.4"
-  }
-  ```
+Run the following code in your command line
+```shell
+node src/index.js
+```
+We should be able to see the log statement getting printed.
 
-**Generating node_modules** 
+We can install nodemon in our project folder. Nodemon is a utility that will monitor for any changes in our source and automatically restart our server. On executing the below on command line, will create a devDependencies section in package.json. This is particularly useful when you want to run tests as you make changes.
 
-The package. json file in the root defines all the libraries that will be installed into `node_modules` when you run npm install. Along with `node_modules` , Package-lock.json file also gets generated.
+```shell
+npm install nodemon --save-dev
+```
+This is what it will create inside `package.json`
+```json
+"devDependencies": {
+  "nodemon": "^2.0.4"
+}
+```
 
-  ```
-  npm install
-  ```
-**Package-lock.json**
+### Step 5: Generating node_modules ###
 
-Package-lock.json file holds the exact versioned dependency tree. This means you can guarantee the dependencies for other developers or prod releases.
+The package.json file in the root defines all the libraries that will be installed into `node_modules` when you run `npm install`. Along with `node_modules` , `package-lock.json` file also gets generated.
+
+```shell
+npm install
+```
+#### What is this package-lock.json ? ####
+
+Package-lock.json file holds the exact versioned dependency tree.
+For example, lets say you have dependency in your packages.json as 
+
+```json
+"devDependencies": {
+  "nodemon": "^2.0.4"
+}
+```
+This means that when any developer does npm install , npm is going to look for any version above 2.0.4 which satisfies the `2.<Any Minor version>.<Any patch version> `format. So as long as the major version is 2 ,and the patch version > 4, npm will install the package. So based on when you are reading this article , you might end up with
+`2.0.4`, `2.1.0` etc depending on the release of nodemon. To prevent this Node js has come up with package-lock. If we clone a repository with a package-lock, the exact versions defined in the pacakge lock will get installed irrespective of whats the latest release of nodemon.
+
 You can read more about Package-lock.json [here](https://docs.npmjs.com/configuring-npm/package-locks.html) 
 
 
+### Step 6: Node Scripts ###
 Next we can move the command to execute the index.js file in scripts section of our package.json.
 
-  ```
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/index.js",
-  }
-  ```
+```json
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "nodemon src/index.js",
+}
+```
 
+On the command line, execute
 
-  On the command line, run the script again, but this time with a npm start. Every time you change the underlying start script in the package.json file's npm scripts, you only need to type npm start on the command line without the specifics of the underlying script.
+```shell
+npm start
+```
 
-  Congratulations, we have set up our first JavaScript project with Node and npm.
+Just change index.js and you will see nodemon automatically restarting and reprinting the log statement.
 
-  Now we will update our project folder a little bit. We will add one more file 'test.js' to src folder.
-  We will add a logger to this file as well. And we will import this new file to our index.js 
+>Congratulations, we have set up our first JavaScript project with Node and npm.
 
-  index.js will look like below:
-  
-  ```
-  import "./test.js";
-  console.log("Inside index.js");
-  ```
-  And the test.js file will look like this.
+### Step 7: Importing other files ###
 
-  ```
-  console.log("Inside test.js");
-  ```
-  We will run the scripts again with npm start. This will immideately give below error.
+Now we will update our project folder a little bit. We will add one more file `test.js` to `src` folder.
+We will add a logger to this file as well. And we will import this new file to our index.js 
 
-  ```
+`index.js` will look like below:
+
+```javascript
+import "./test.js";
+console.log("Inside index.js");
+```
+And the test.js file will look like this.
+
+```javascript
+console.log("Inside test.js");
+```
+We will run the scripts again with `npm start`. 
+
+This will result in an **error**.
+
+```shell
   SyntaxError: Cannot use import statement outside a module
     at wrapSafe (internal/modules/cjs/loader.js:1047:16)
     at Module._compile (internal/modules/cjs/loader.js:1097:27)
@@ -168,56 +164,59 @@ Next we can move the command to execute the index.js file in scripts section of 
     at internal/main/run_main_module.js:18:47
   ```
 
-  This is because we are using ES6, a new version of Javascript which is not supported. Inorder to use the ES6 we need to set up a transpiller which can convert ES6 code to ES5 which the browser can understand.
+This is because we are using ES6, a new version of Javascript which is not supported. In order to use the ES6 we need to set up a transpiler which can convert ES6 code to ES5 which the Node JS runtime can understand.
 
+### Step 8: Setting Up an ES6 Project Using Babel
 
-**Setting Up an ES6 Project Using Babel**
+#### What is ES6
+This is a new version of Javascript which not all the vendor browsers/Node JS versions support. 
+Therefore, if we want to use a new feature in ES6 and expect the old browsers/Node JS versions to understand it, we must use a transpiler (Example - Babel).
 
-  **What is ES6** - This is a new version of Javascript which not all the vendor browsers support. 
-  Therefore, if we want to use a new feature in ES6 and expect the old browsers to understand it, we must use a transpiler (Example - Babel).
+#### Setting up ES6 transpiler Babel
 
-  * Setting up ES6 transpiler Babel
+Run below command in command line. This will add babel libraries in devDependencies in package.json and will install in node_modules.
 
-  Run below command in command line. This will add babel libraries in devDependencies in package.json and will install in node_modules.
+```shell
+npm install @babel/core @babel/node @babel/cli @babel/preset-env --save-dev; 
+```
 
-  ```
-  npm install @babel/core @babel/node @babel/cli @babel/preset-env --save-dev; 
-  ```
+```json
+"devDependencies": {
+  "@babel/cli": "^7.8.4",
+  "@babel/core": "^7.9.6",
+  "@babel/preset-env": "^7.9.6",
+  "@babel/node": "^7.8.7",
+}
+```
 
-  ```
-  "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "@babel/node": "^7.8.7",
-  }
-  ```
-  Update the start script in package.json.
-  ```
-  "scripts" : {
-    "start": "nodemon --exec babel-node src/index.js"
-  }
-  ```
+Update the start script in `package.json`. So instead of executing NodeJs , we will use `babel-node` which understand ES 6.
 
-  Add .babelrc file
+```json
+"scripts" : {
+  "start": "nodemon --exec babel-node src/index.js"
+}
+```
 
-  ```
-  {
-    "presets": ["@babel/preset-env"],
-    "env": {
-      "debug": {
-        "sourceMaps": "inline",
-        "retainLines": true
-      }
+Add .babelrc file. 
+
+```json
+{
+  "presets": ["@babel/preset-env"],
+  "env": {
+    "debug": {
+      "sourceMaps": "inline",
+      "retainLines": true
     }
   }
-  ```
-
-**Enabling debugger in VS code**
-
-To enable the vscode debugging, add launch.json file in .vscode folder
-
+}
 ```
+
+### Step 9: Setting Up an ES6 Project Using Babel
+Now we already have a Javscript repo which can take advtange of teh latest and greates in the Javscript world. But inspite of how advanced our repo is , development productivity comes from easy debugging. We would like to have the option to put breakpoints, use vs code's debugging capabilities without writing console logs everywhere !
+
+To enable the vscode debugging, add `launch.json` file in .vscode folder. `launch.json` is what VsCode  understands and uses it to populate the dropdown in the debug menu.
+
+```json
 {
     "version": "0.2.0",
     "configurations": [
@@ -252,6 +251,7 @@ To enable the vscode debugging, add launch.json file in .vscode folder
 	]
 }
 ```
+Once you do this, you should see.
 
 
 
