@@ -12,9 +12,7 @@ description: "This article shows how to create a basic scaffolding for writing J
 socialImage: "/blog/media/photo.png"
 ---
 
-I am going to start a series on how to write some of the popular algorithms and use datastructres in javascript. This series is going to be paricularly sueful for front developers who are preparing for DS & Algo for their interveiws.
-
-Now the first step of our journey is to create a respository where we can start writing our algorithms. This seems to be a pretty straight forward problem but unfortunately its not. The problem is exacerbated by different versions of Javascript , Node js , etc. I was unable to find a good tutorial on how to setup a Node JS repo for writing programs in ES 6.
+I am going to start a series on how to write some of the popular **algorithms and use datastructres** in javascript. This series is going to be paricularly sueful for front developers who are preparing for DS & Algo for their interveiws.
 
 At the end of this article , we will 
 1. A Node JS Git repo
@@ -22,9 +20,13 @@ At the end of this article , we will
 3. We will not be tied to the latest Node Js versions.
 4. We can easily debug using VS Code.
 
+You can download the scaffolding directly [here](https://github.com/AnushreeBagchi/Setup-Javascript-Repo).
+
+Now the first step of our journey is to create a respository where we can start writing our algorithms. This seems to be a pretty straight forward problem but unfortunately its not. 
+
 There are lot of blogs in the internet to assist while working on a JS project but none of them tells the detail on how to set up a new repository for a project. Hope this is helpful for people who have started there journey to learn Javascript.
 
-Happy Learning :)
+>Happy Learning :)
 
 ### Step 1: Creating a new repository in Git and push it ###
 
