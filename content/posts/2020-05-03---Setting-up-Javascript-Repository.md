@@ -12,9 +12,9 @@ description: "This article shows how to create a basic scaffolding for writing J
 socialImage: "/blog/media/photo.png"
 ---
 
-I am going to start a series on how to write some of the popular **algorithms and use datastructres** in javascript. This series is going to be paricularly sueful for front developers who are preparing for DS & Algo for their interveiws.
+I am going to start a series on how to write some of the popular **algorithms and use data structures** in javascript. This series is going to be particularly useful for front developers who are preparing for DS & Algo for their interviews.
 
-At the end of this article , we will 
+At the end of this article, we will 
 1. A Node JS Git repo
 2. We will be able to use the latest and greatest in EcmaScript.
 3. We will not be tied to the latest Node Js versions.
@@ -22,22 +22,22 @@ At the end of this article , we will
 
 You can download the scaffolding directly [here](https://github.com/AnushreeBagchi/Setup-Javascript-Repo).
 
-Now the first step of our journey is to create a respository where we can start writing our algorithms. This seems to be a pretty straight forward problem but unfortunately its not. 
+Now the first step of our journey is to create a repository where we can start writing our algorithms. This seems to be a pretty straight forward problem but unfortunately it's not. 
 
-There are lot of blogs in the internet to assist while working on a JS project but none of them tells the detail on how to set up a new repository for a project. Hope this is helpful for people who have started there journey to learn Javascript.
+There are a lot of blogs on the internet to assist while working on a JS project but none of them tells the detail on how to set up a new repository for a project. I hope this is helpful for people who have started there journey to learn Javascript.
 
 >Happy Learning :)
 
 ### Step 1: Creating a new repository in Git and push it ###
 
-  * Create new folder. Open the folder in VS Code.
+  * Create a new folder. Open the folder in VS Code.
   * Initialize git - `git init`
-  * Create new repository in GitHub.
+  * Create a new repository in GitHub.
   * Commit and push the new folder to Github.
 
 ### Step 2: Set up a new NodeJS repo that will create a new package.json file. ###
   
-Navigate to root directory on command line and run the below command. 
+Navigate to the root directory on the command line and run the below command. 
 ```shell
 npm init
 ```
@@ -80,7 +80,7 @@ node src/index.js
 ```
 We should be able to see the log statement getting printed.
 
-We can install nodemon in our project folder. Nodemon is a utility that will monitor for any changes in our source and automatically restart our server. On executing the below on command line, will create a devDependencies section in package.json. This is particularly useful when you want to run tests as you make changes.
+We can install a nodemon in our project folder. Nodemon is a utility that will monitor for any changes in our source and automatically restart our server. On executing the below on command line, this will create a devDependencies section in package.json. This is particularly useful when you want to run tests as you make changes.
 
 ```shell
 npm install nodemon --save-dev
@@ -94,7 +94,7 @@ This is what it will create inside `package.json`
 
 ### Step 5: Generating node_modules ###
 
-The package.json file in the root defines all the libraries that will be installed into `node_modules` when you run `npm install`. Along with `node_modules` , `package-lock.json` file also gets generated.
+The package.json file in the root defines all the libraries that will be installed into `node_modules` when you run `npm install`. Along with `node_modules`, `package-lock.json` file also gets generated.
 
 ```shell
 npm install
@@ -102,21 +102,21 @@ npm install
 #### What is this package-lock.json ? ####
 
 Package-lock.json file holds the exact versioned dependency tree.
-For example, lets say you have dependency in your packages.json as 
+For example, let's say you have a dependency in your packages.json as 
 
 ```json
 "devDependencies": {
   "nodemon": "^2.0.4"
 }
 ```
-This means that when any developer does npm install , npm is going to look for any version above 2.0.4 which satisfies the `2.<Any Minor version>.<Any patch version> `format. So as long as the major version is 2 ,and the patch version > 4, npm will install the package. So based on when you are reading this article , you might end up with
-`2.0.4`, `2.1.0` etc depending on the release of nodemon. To prevent this Node js has come up with package-lock. If we clone a repository with a package-lock, the exact versions defined in the pacakge lock will get installed irrespective of whats the latest release of nodemon.
+This means that when any developer does npm install, npm is going to look for any version above 2.0.4 which satisfies the `2.<Any Minor version>.<Any patch version> `format. So as long as the major version is 2, and the patch version > 4, npm will install the package. So based on when you are reading this article, you might end up with
+`2.0.4`, `2.1.0` etc depending on the release of nodemon. To prevent this Node js has come up with package-lock. If we clone a repository with a package-lock, the exact versions defined in the package-lock will get installed irrespective of whats the latest release of nodemon.
 
 You can read more about Package-lock.json [here](https://docs.npmjs.com/configuring-npm/package-locks.html) 
 
 
 ### Step 6: Node Scripts ###
-Next we can move the command to execute the index.js file in scripts section of our package.json.
+Next we can move the command to execute the index.js file in the scripts section of our package.json.
 
 ```json
 "scripts": {
@@ -137,7 +137,7 @@ Just change index.js and you will see nodemon automatically restarting and repri
 
 ### Step 7: Importing other files ###
 
-Now we will update our project folder a little bit. We will add one more file `test.js` to `src` folder.
+Now we will update our project folder a little bit. We will add one more file `test.js` to the `src` folder.
 We will add a logger to this file as well. And we will import this new file to our index.js 
 
 `index.js` will look like below:
@@ -166,7 +166,7 @@ This will result in an **error**.
     at internal/main/run_main_module.js:18:47
   ```
 
-This is because we are using ES6, a new version of Javascript which is not supported. In order to use the ES6 we need to set up a transpiler which can convert ES6 code to ES5 which the Node JS runtime can understand.
+This is because we are using ES6, a new version of Javascript which is not supported. To use the ES6 we need to set up a transpiler that can convert ES6 code to ES5 which the Node JS runtime can understand.
 
 ### Step 8: Setting Up an ES6 Project Using Babel
 
@@ -176,7 +176,7 @@ Therefore, if we want to use a new feature in ES6 and expect the old browsers/No
 
 #### Setting up ES6 transpiler Babel
 
-Run below command in command line. This will add babel libraries in devDependencies in package.json and will install in node_modules.
+Run below command in the command line. This will add babel libraries in devDependencies in package.json and will install in node_modules.
 
 ```shell
 npm install @babel/core @babel/node @babel/cli @babel/preset-env --save-dev; 
@@ -191,7 +191,7 @@ npm install @babel/core @babel/node @babel/cli @babel/preset-env --save-dev;
 }
 ```
 
-Update the start script in `package.json`. So instead of executing NodeJs , we will use `babel-node` which understand ES 6.
+Update the start script in `package.json`. So instead of executing NodeJs, we will use `babel-node` which understands ES 6.
 
 ```json
 "scripts" : {
@@ -214,15 +214,15 @@ Add .babelrc file.
 ```
 
 ### Step 9: Setting Up an ES6 Project Using Babel
-Now we already have a Javscript repo which can take advtange of teh latest and greates in the Javscript world. But inspite of how advanced our repo is , development productivity comes from easy debugging. We would like to have the option to put breakpoints, use vs code's debugging capabilities without writing console logs everywhere !
+Now we have a Javascript repo which can take advantage of the latest and greatest in the Javascript world. But despite how advanced our repo is, development productivity comes from easy debugging. We would like to have the option to put breakpoints, use vs code's debugging capabilities without writing console logs everywhere!
 
-To enable the vscode debugging, add `launch.json` file in .vscode folder. `launch.json` is what VsCode  understands and uses it to populate the dropdown in the debug menu.
+To enable the VSCode debugging, add `launch.json` file in the .vscode folder. `launch.json` is what VSCode understands and uses it to populate the dropdown in the debug menu.
 
 ```json
 {
     "version": "0.2.0",
     "configurations": [
-		
+    
         {
             "type": "node",
             "request": "launch",
@@ -234,23 +234,23 @@ To enable the vscode debugging, add `launch.json` file in .vscode folder. `launc
               "BABEL_ENV": "debug"
             }
         },
-		{
-			"type": "node",
-			"request": "attach",
-			"name": "Attach",
-			"restart": true,
-			"port": 9229
-		},
-		{
-			"type": "node",
-			"request": "launch",
-			"protocol": "inspector",
-			"name": "ES6 Debugger",
-			"program": "${workspaceFolder}/index.js",
-			"runtimeExecutable": "${workspaceRoot}/node_modules/.bin/babel-node",
-			"runtimeArgs": ["--presets", "env"]
-		}
-	]
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach",
+      "restart": true,
+      "port": 9229
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "protocol": "inspector",
+      "name": "ES6 Debugger",
+      "program": "${workspaceFolder}/index.js",
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/babel-node",
+      "runtimeArgs": ["--presets", "env"]
+    }
+  ]
 }
 ```
 Once you do this, you should see.
