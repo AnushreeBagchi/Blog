@@ -14,17 +14,17 @@ socialImage: "/blog/media/photo.png"
 
 I am going to start a series on how to write some of the popular **algorithms and use data structures** in javascript. This series is going to be particularly useful for front developers who are preparing for DS & Algo for their interviews.
 
-At the end of this article, we will 
+Now the first step of our journey is to create a repository where we can start writing our algorithms. This seems to be a pretty straight forward problem but unfortunately it's not. 
+
+There are a lot of blogs on the internet to assist while working on a JS project but none of them tells the detail on how to set up a new repository for a project. I hope this is helpful for people who have started there journey to learn Javascript.
+
+At the end of this article, we will have
 1. A Node JS Git repo
 2. We will be able to use the latest and greatest in EcmaScript.
 3. We will not be tied to the latest Node Js versions.
 4. We can easily debug using VS Code.
 
 You can download the scaffolding directly [here](https://github.com/AnushreeBagchi/Setup-Javascript-Repo).
-
-Now the first step of our journey is to create a repository where we can start writing our algorithms. This seems to be a pretty straight forward problem but unfortunately it's not. 
-
-There are a lot of blogs on the internet to assist while working on a JS project but none of them tells the detail on how to set up a new repository for a project. I hope this is helpful for people who have started there journey to learn Javascript.
 
 >Happy Learning :)
 
@@ -33,7 +33,7 @@ There are a lot of blogs on the internet to assist while working on a JS project
   * Create a new folder. Open the folder in VS Code.
   * Initialize git - `git init`
   * Create a new repository in GitHub.
-  * Commit and push the new folder to Github.
+  * Commit and push the new folder to GitHub.
 
 ### Step 2: Set up a new NodeJS repo that will create a new package.json file. ###
   
@@ -199,7 +199,7 @@ Update the start script in `package.json`. So instead of executing NodeJs, we wi
 }
 ```
 
-Add .babelrc file. 
+Add .babelrc config file. 
 
 ```json
 {
@@ -253,7 +253,7 @@ To enable the VSCode debugging, add `launch.json` file in the .vscode folder. `l
   ]
 }
 ```
-Once you do this, you should see.
+Once you do this, you should see a dropdown to debug current file in Run tab.
 
 
 
